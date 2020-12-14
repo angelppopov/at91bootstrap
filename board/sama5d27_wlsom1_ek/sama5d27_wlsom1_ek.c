@@ -410,8 +410,10 @@ void hw_init(void)
 	/* initialize the dbgu */
 	initialize_dbgu();
 
-	/* initialize the ITG 3002 B Board IOs */
-	init_itg_3002_b_io();
+	/* initialize the ITG UCP 002 B IOs */
+	init_itg_ucp_002_b_io();
+	/* initialize the ITG UCP 002 C RS485 CTLS */
+	init_itg_ucp_002_c_rs_485();
 
 	/* Configure PLLA */
 	pmc_cfg_plla(PLLA_SETTINGS);
