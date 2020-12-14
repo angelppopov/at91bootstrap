@@ -359,19 +359,33 @@ static void lpddr2_init(void)
 #error "No right DDR-SDRAM device type provided"
 #endif
 
-static void init_itg_3002_b_io(void)
+static void init_itg_ucp_002_b_io(void)
 {
-	usart_puts("ITG 3002 B IO initializing...\n");
-	pio_set_gpio_output(AT91C_PIN_PC(6), 0);
-	pio_set_gpio_output(AT91C_PIN_PC(7), 0);
-	pio_set_gpio_input(AT91C_PIN_PC(8), 0);
-	pio_set_gpio_input(AT91C_PIN_PC(9), 0);
-	pio_set_gpio_input(AT91C_PIN_PC(10), 0);
-	pio_set_gpio_input(AT91C_PIN_PC(11), 0);
-	pio_set_gpio_output(AT91C_PIN_PC(12), 0);
-	pio_set_gpio_output(AT91C_PIN_PC(13), 0);
-	usart_puts("Done...\nITG 3002 B IO initialized\n");
+	usart_puts("ITG UCP 002 B IO initializing...\n");
+	pio_set_gpio_output(AT91C_PIN_PD(5), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(7), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(8), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(9), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(10), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(11), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(12), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(13), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(14), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(15), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(16), 0);
+	usart_puts("Done...\n");
 }
+static void init_itg_ucp_002_c_rs_485(void)
+{
+	/* XNOR Gates for RTS controls */
+	usart_puts("ITG UCP 002 C 485\n");
+	pio_set_gpio_output(AT91C_PIN_PD(28), 0);
+	pio_set_gpio_output(AT91C_PIN_PD(30), 0);
+	pio_set_gpio_output(AT91C_PIN_PA(31), 0);
+	pio_set_gpio_output(AT91C_PIN_PC(0), 0);
+	usart_puts("Done...\n");
+}
+
 
 /**
  * The MSBs [bits 31:16] of the CAN Message RAM for CAN0 and CAN1
